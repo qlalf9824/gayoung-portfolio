@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Sparkles from "@/lib/icons/sparkles.svg";
 import { CAREER_ERA } from "@/lib/constants";
 import ItemGrid from "./_components/ItemGrid";
+
+export const metadata: Metadata = {
+  title: "Developer Inventory",
+  description:
+    "옷을 입는 동안 가방에 담아온 도구들. React · Next.js · Flutter · TypeScript 등 실제 프로덕션에서 쓴 기술 스택.",
+};
 
 export default function InventoryPage() {
   return (

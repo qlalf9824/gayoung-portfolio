@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Sparkles from "@/lib/icons/sparkles.svg";
 import ContactCard from "./_components/ContactCard";
+
+export const metadata: Metadata = {
+  title: "About & Contact",
+  description:
+    "사용자와 동료가 겪는 불편을 그냥 지나치지 않는 프론트엔드 개발자 하가영입니다. 이메일 · GitHub · LinkedIn · 이력서.",
+};
 
 const QUICK_FACTS = [
   { label: "BASED IN", value: "Seoul, KR" },

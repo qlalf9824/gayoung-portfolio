@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Sparkles from "@/lib/icons/sparkles.svg";
 import { PROJECTS } from "@/lib/content/projects";
 import FeaturedCase from "./_components/FeaturedCase";
 import CaseCard from "./_components/CaseCard";
+
+export const metadata: Metadata = {
+  title: "Selected Projects",
+  description:
+    "문제 → 접근 → 결과 순서로 정리한 프로젝트 케이스. 상품 목록 가상화, 주문·결제 설계, AI 에이전트 워크플로 등.",
+};
 
 export default function ProjectsPage() {
   const featured = PROJECTS.find((project) => project.featured);

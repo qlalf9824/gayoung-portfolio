@@ -8,6 +8,17 @@ export function generateStaticParams() {
   return OUTFITS.map((outfit) => ({ era: outfit.era }));
 }
 
+export async function generateMetadata({ params }: PageProps<"/career/[era]">) {
+  const { era } = await params;
+  const outfit = OUTFITS.find((o) => o.era === era);
+  const career = outfit && CAREERS[outfit.era];
+  if (!career) return {};
+  return {
+    title: career.title,
+    description: `${career.team} · ${career.period} — ${career.role}`,
+  };
+}
+
 export default async function CareerPage({
   params,
 }: PageProps<"/career/[era]">) {

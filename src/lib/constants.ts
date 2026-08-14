@@ -1,3 +1,6 @@
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ginnyoung.vercel.app/";
+
 export const CAREER_ERA = {
   VUMEZIN_2021: "2021",
   CHARAN_2022: "2022",
