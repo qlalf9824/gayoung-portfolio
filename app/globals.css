@@ -1,7 +1,135 @@
 @import "tailwindcss";
 
+/* ============================================
+   Design tokens — from design/portfolio (.pen)
+   ============================================ */
+
 @theme inline {
   --font-sans: var(--font-pretendard);
+}
+
+@theme {
+  /* --- Base (light, cream) --- */
+  --color-bg-base: #f7f1e7;
+  --color-bg-soft: #fbf9f4;
+  --color-bg-panel: #fffcf6;
+  --color-bg-deep: #16130f;
+  --color-bg-deep-warm: #231512;
+
+  --color-ink: #171310;
+  --color-ink-2: #5e564c;
+  --color-ink-3: #8f877b;
+  --color-ink-warm: #9a8478;
+
+  --color-line: #d9d1c1;
+  --color-rail: #b4a891;
+
+  /* --- Surfaces --- */
+  --color-surface-warm: #fbf2ec;
+  --color-surface-blush: #fff7f3;
+  --color-surface-lilac: #f5f1fc;
+
+  /* --- Brand / accents --- */
+  --color-brand-clay: #c9563c;
+  --color-brand-sage: #6e8b74;
+  --color-brand-indigo: #2f3dbf;
+  --color-mint: #8cc7a1;
+
+  --color-brand-clay-tint: #c9563c18;
+  --color-brand-sage-tint: #6e8b7418;
+  --color-brand-indigo-tint: #2f3dbf18;
+  --color-gold-tint: #dda94a24;
+
+  /* --- Era point colors --- */
+  --color-p22: #2e4a7d;
+  --color-p24: #7b5ac4;
+  --color-p26: #d93b3b;
+  --color-p22-tint: #2e4a7d18;
+  --color-p24-tint: #7b5ac418;
+  --color-p26-tint: #d93b3b18;
+
+  /* --- Utility overlays --- */
+  --color-shade-soft: #00000038;
+  --color-tint-ink: #17131014;
+  --color-ov-1: #ffffff08;
+  --color-ov-2: #ffffff0f;
+  --color-ov-3: #ffffff1f;
+
+  /* --- Type scale (fs-*) --- */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-title: 64px;
+  --text-title--line-height: 1.05;
+  --text-hero: 92px;
+  --text-hero--line-height: 0.95;
+}
+
+/* --- Era theme tokens (stage-*) ---
+   Switch with data-era="2021" | "2022" | "2026" | "inventory"
+   on any ancestor element. Defaults to "inventory". */
+:root,
+[data-era="inventory"] {
+  --stage-bg: #16130f;
+  --stage-line: #ffffff1f;
+  --stage-ink: #f5f0e7;
+  --stage-ink-2: #8a7f70;
+  --stage-ink-3: #b7ac9c;
+  --stage-accent: #dda94a;
+  --stage-tint: #dda94a24;
+  --stage-glow: #dda94a24;
+  --stage-glow-0: #dda94a00;
+}
+
+[data-era="2021"] {
+  --stage-bg: #0f1a2e;
+  --stage-line: #22334f;
+  --stage-ink: #edf3fb;
+  --stage-ink-2: #8293ac;
+  --stage-ink-3: #b4c5de;
+  --stage-accent: #7fa8ea;
+  --stage-tint: #3e77c822;
+  --stage-glow: #2e4a7d66;
+  --stage-glow-0: #2e4a7d00;
+}
+
+[data-era="2022"] {
+  --stage-bg: #1e1830;
+  --stage-line: #352c50;
+  --stage-ink: #f4f1fc;
+  --stage-ink-2: #9489b0;
+  --stage-ink-3: #c4b9da;
+  --stage-accent: #a98bf5;
+  --stage-tint: #8b6be022;
+  --stage-glow: #7b5ac455;
+  --stage-glow-0: #7b5ac400;
+}
+
+[data-era="2026"] {
+  --stage-bg: #2a1416;
+  --stage-line: #4a2a2c;
+  --stage-ink: #fdf2f0;
+  --stage-ink-2: #b5928e;
+  --stage-ink-3: #e7c8c3;
+  --stage-accent: #ff9385;
+  --stage-tint: #e0503c22;
+  --stage-glow: #d93b3b66;
+  --stage-glow-0: #d93b3b00;
+}
+
+@theme inline {
+  --color-stage-bg: var(--stage-bg);
+  --color-stage-line: var(--stage-line);
+  --color-stage-ink: var(--stage-ink);
+  --color-stage-ink-2: var(--stage-ink-2);
+  --color-stage-ink-3: var(--stage-ink-3);
+  --color-stage-accent: var(--stage-accent);
+  --color-stage-tint: var(--stage-tint);
+  --color-stage-glow: var(--stage-glow);
+  --color-stage-glow-0: var(--stage-glow-0);
 }
 
 body {
@@ -11,4 +139,6 @@ body {
     BlinkMacSystemFont,
     "Apple SD Gothic Neo",
     sans-serif;
+  background-color: var(--color-bg-base);
+  color: var(--color-ink);
 }
