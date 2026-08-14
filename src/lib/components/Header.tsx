@@ -14,7 +14,7 @@ import {
 const ERA_VALUES = Object.values(CAREER_ERA) as string[];
 
 function eraFromPathname(pathname: string): CareerEra | undefined {
-  if (pathname.startsWith("/wearing/")) {
+  if (pathname.startsWith("/career/")) {
     const segment = pathname.split("/")[2];
     if (ERA_VALUES.includes(segment)) return segment as CareerEra;
   }

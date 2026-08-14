@@ -13,7 +13,7 @@ export default function ClosetBoard() {
   const router = useRouter();
 
   const wear = (outfit: Outfit) => {
-    router.push(`/wearing/${outfit.era}`);
+    router.push(`/career/${outfit.era}`);
   };
 
   const { dragging, pointer, dropZoneRef, onOutfitGrab } = useOutfitDrag(wear);

@@ -7,7 +7,7 @@ export function generateStaticParams() {
 
 export default async function WearingPage({
   params,
-}: PageProps<"/wearing/[era]">) {
+}: PageProps<"/career/[era]">) {
   const { era } = await params;
   const outfit = OUTFITS.find((outfit) => outfit.era === era);
   if (!outfit) notFound();
