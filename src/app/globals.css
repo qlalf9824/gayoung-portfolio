@@ -1,15 +1,10 @@
 @import "tailwindcss";
 
-/* ============================================
-   Design tokens — from design/portfolio (.pen)
-   ============================================ */
-
 @theme inline {
   --font-sans: var(--font-pretendard);
 }
 
 @theme {
-  /* --- Base (light, cream) --- */
   --color-bg-base: #f7f1e7;
   --color-bg-soft: #fbf9f4;
   --color-bg-panel: #fffcf6;
@@ -24,12 +19,10 @@
   --color-line: #d9d1c1;
   --color-rail: #b4a891;
 
-  /* --- Surfaces --- */
   --color-surface-warm: #fbf2ec;
   --color-surface-blush: #fff7f3;
   --color-surface-lilac: #f5f1fc;
 
-  /* --- Brand / accents --- */
   --color-brand-clay: #c9563c;
   --color-brand-sage: #6e8b74;
   --color-brand-indigo: #2f3dbf;
@@ -40,7 +33,6 @@
   --color-brand-indigo-tint: #2f3dbf18;
   --color-gold-tint: #dda94a24;
 
-  /* --- Era point colors --- */
   --color-p22: #2e4a7d;
   --color-p24: #7b5ac4;
   --color-p26: #d93b3b;
@@ -48,14 +40,12 @@
   --color-p24-tint: #7b5ac418;
   --color-p26-tint: #d93b3b18;
 
-  /* --- Utility overlays --- */
   --color-shade-soft: #00000038;
   --color-tint-ink: #17131014;
   --color-ov-1: #ffffff08;
   --color-ov-2: #ffffff0f;
   --color-ov-3: #ffffff1f;
 
-  /* --- Type scale (fs-*) --- */
   --text-xs: 12px;
   --text-sm: 14px;
   --text-md: 16px;
@@ -68,9 +58,7 @@
   --text-hero--line-height: 0.95;
 }
 
-/* --- Era theme tokens (stage-*) ---
-   Switch with data-era="2021" | "2022" | "2026" | "inventory"
-   on any ancestor element. Defaults to "inventory". */
+/* stage-* 색은 조상 요소의 data-era("2021"|"2022"|"2026"|"inventory")로 전환, 기본값 inventory */
 :root,
 [data-era="inventory"] {
   --stage-bg: #16130f;
