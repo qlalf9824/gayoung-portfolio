@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ArrowUpRight from "@/lib/icons/arrow-up-right.svg";
 import Menu from "@/lib/icons/menu.svg";
 import X from "@/lib/icons/x.svg";
 import {
@@ -92,15 +91,6 @@ export default function Header() {
             {label}
           </Link>
         ))}
-        <Link
-          href="/about"
-          className={`flex items-center gap-1 rounded-full px-4 py-[9px] transition-colors ${
-            dark ? "bg-stage-accent text-stage-bg" : "bg-ink text-bg-soft"
-          }`}
-        >
-          <span className="text-xs tracking-[0.4px]">Get in touch</span>
-          <ArrowUpRight aria-hidden />
-        </Link>
       </nav>
 
       <button
@@ -146,16 +136,6 @@ export default function Header() {
                 </Link>
               ))}
             </nav>
-            <Link
-              href="/about"
-              onClick={() => setMenuOpen(false)}
-              className={`mt-auto flex items-center justify-center gap-1.5 rounded-full px-4 py-3 ${
-                dark ? "bg-stage-accent text-stage-bg" : "bg-ink text-bg-soft"
-              }`}
-            >
-              <span className="text-sm tracking-[0.4px]">Get in touch</span>
-              <ArrowUpRight width={15} height={15} aria-hidden />
-            </Link>
           </aside>
         </>
       )}
