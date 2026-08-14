@@ -27,6 +27,10 @@ export default function ClosetBoard() {
     setPointer({ x: e.clientX, y: e.clientY });
   };
 
+  const handleWear = (garment: Garment) => {
+    router.push(`/wearing/${garment.era}`);
+  };
+
   useEffect(() => {
     const handleMove = (e: PointerEvent) => {
       const pending = pendingRef.current;
@@ -82,7 +86,11 @@ export default function ClosetBoard() {
   return (
     <>
       <HeroTop dragging={dragging} dropZoneRef={dropZoneRef} />
-      <ClosetRack dragging={dragging} onGarmentGrab={handleGarmentGrab} />
+      <ClosetRack
+        dragging={dragging}
+        onGarmentGrab={handleGarmentGrab}
+        onWear={handleWear}
+      />
       <InteractionHints dragging={dragging} />
       {dragging && (
         <div

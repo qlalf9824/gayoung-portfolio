@@ -5,11 +5,13 @@ import { GARMENTS, type Garment } from "@/lib/constants";
 interface ClosetRackProps {
   dragging: Garment | null;
   onGarmentGrab: (garment: Garment, e: React.PointerEvent) => void;
+  onWear: (garment: Garment) => void;
 }
 
 export default function ClosetRack({
   dragging,
   onGarmentGrab,
+  onWear,
 }: ClosetRackProps) {
   return (
     <div className="flex w-full flex-col">
@@ -64,7 +66,8 @@ export default function ClosetRack({
                 </div>
                 <button
                   type="button"
-                  className={`flex items-center gap-1.5 rounded-full border bg-bg-panel px-[13px] py-[7px] ${g.chipClass}`}
+                  onClick={() => onWear(g)}
+                  className={`flex cursor-pointer items-center gap-1.5 rounded-full border bg-bg-panel px-[13px] py-[7px] transition-transform hover:scale-105 ${g.chipClass}`}
                 >
                   <Shirt width={12} height={12} />
                   <span className="text-xs tracking-[0.4px]">Wear</span>
