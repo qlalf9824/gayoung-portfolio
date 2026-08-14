@@ -1,5 +1,6 @@
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ginnyoung.vercel.app/";
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ginnyoung.vercel.app"
+).replace(/\/$/, "");
 
 export const CAREER_ERA = {
   VUMEZIN_2021: "2021",

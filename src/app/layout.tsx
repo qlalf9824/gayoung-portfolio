@@ -48,6 +48,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  verification: {
+    google: "mK4UfZMtXBJ6nvtaVTenUWf0Z-o5o1T8wgKEtw3anlc",
+  },
   twitter: {
     card: "summary_large_image",
     title: "하가영 | 프론트엔드 개발자",
