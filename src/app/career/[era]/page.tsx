@@ -1,27 +1,28 @@
 import { notFound } from "next/navigation";
 import { OUTFITS } from "@/lib/content/outfits";
+import { CAREERS } from "@/lib/content/careers";
+import PeriodDetail from "../_components/PeriodDetail";
+import StageColumn from "../_components/StageColumn";
 
 export function generateStaticParams() {
   return OUTFITS.map((outfit) => ({ era: outfit.era }));
 }
 
-export default async function WearingPage({
+export default async function CareerPage({
   params,
 }: PageProps<"/career/[era]">) {
   const { era } = await params;
-  const outfit = OUTFITS.find((outfit) => outfit.era === era);
-  if (!outfit) notFound();
+  const outfit = OUTFITS.find((o) => o.era === era);
+  const career = outfit && CAREERS[outfit.era];
 
+  if (!career) notFound();
   return (
     <main
       data-era={era}
-      className="flex h-dvh min-h-[640px] flex-col items-center justify-center gap-3 bg-stage-bg pt-[72px]"
+      className="flex min-h-dvh gap-14 bg-stage-bg px-12 pt-[calc(72px+40px)] pb-20 max-[900px]:flex-col max-[900px]:gap-8 max-[900px]:px-6 max-[900px]:pt-[calc(72px+24px)]"
     >
-      <p className="text-sm tracking-[0.6px] text-stage-ink-2">
-        {outfit.year} — {outfit.company}
-      </p>
-      <h1 className="text-title font-bold text-stage-ink">Wearing</h1>
-      <p className="text-md text-stage-ink-3">준비 중인 화면입니다</p>
+      <PeriodDetail career={career} />
+      <StageColumn career={career} />
     </main>
   );
 }

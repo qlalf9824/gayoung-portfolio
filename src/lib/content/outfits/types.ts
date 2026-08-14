@@ -4,6 +4,7 @@ export interface Outfit {
   era: CareerEra;
   year: string;
   company: string;
+  shortName: string;
   role: string;
   image: string;
   cardClass: string;

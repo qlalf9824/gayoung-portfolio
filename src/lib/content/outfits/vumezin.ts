@@ -5,6 +5,7 @@ export const vumezinOutfit: Outfit = {
   era: CAREER_ERA.VUMEZIN_2021,
   year: "2021",
   company: "뷰메진",
+  shortName: "뷰메진",
   role: "Frontend Developer",
   image: "/images/outfit-vumezin.png",
   cardClass: "bg-p22-tint",

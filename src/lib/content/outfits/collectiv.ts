@@ -5,6 +5,7 @@ export const collectivOutfit: Outfit = {
   era: CAREER_ERA.COLLECTIV_2026,
   year: "2026",
   company: "크레이빙콜렉터",
+  shortName: "콜렉티브",
   role: "콜렉티브 · Frontend",
   image: "/images/outfit-collectiv.png",
   cardClass: "bg-p26-tint",

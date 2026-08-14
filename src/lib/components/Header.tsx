@@ -10,13 +10,12 @@ import {
   type CareerEra,
   type NavItem,
 } from "@/lib/constants";
-
-const ERA_VALUES = Object.values(CAREER_ERA) as string[];
+import { CAREERS } from "@/lib/content/careers";
 
 function eraFromPathname(pathname: string): CareerEra | undefined {
   if (pathname.startsWith("/career/")) {
-    const segment = pathname.split("/")[2];
-    if (ERA_VALUES.includes(segment)) return segment as CareerEra;
+    const segment = pathname.split("/")[2] as CareerEra;
+    if (CAREERS[segment]) return segment;
   }
   if (pathname.startsWith("/inventory")) return CAREER_ERA.INVENTORY;
   return undefined;
