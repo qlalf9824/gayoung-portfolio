@@ -1,24 +1,45 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ArrowUpRight from "@/lib/icons/arrow-up-right.svg";
 import {
+  CAREER_ERA,
   NAV_ITEM,
   NAV_ITEMS,
   type CareerEra,
   type NavItem,
 } from "@/lib/constants";
 
-interface HeaderProps {
-  era?: CareerEra;
-  active?: NavItem;
+const ERA_VALUES = Object.values(CAREER_ERA) as string[];
+
+function eraFromPathname(pathname: string): CareerEra | undefined {
+  if (pathname.startsWith("/wearing/")) {
+    const segment = pathname.split("/")[2];
+    if (ERA_VALUES.includes(segment)) return segment as CareerEra;
+  }
+  if (pathname.startsWith("/inventory")) return CAREER_ERA.INVENTORY;
+  return undefined;
 }
 
-export default function Header({ era, active = NAV_ITEM.CLOSET }: HeaderProps) {
+function activeFromPathname(pathname: string): NavItem {
+  if (pathname.startsWith("/projects")) return NAV_ITEM.PROJECTS;
+  if (pathname.startsWith("/inventory")) return NAV_ITEM.INVENTORY;
+  if (pathname.startsWith("/about")) return NAV_ITEM.ABOUT;
+  return NAV_ITEM.CLOSET;
+}
+
+export default function Header() {
+  const pathname = usePathname();
+  const era = eraFromPathname(pathname);
+  const active = activeFromPathname(pathname);
   const dark = era !== undefined;
 
   return (
     <header
       data-era={era}
-      className={`flex w-full items-center justify-between border-b px-5 py-4 transition-colors duration-500 ${
-        dark ? "border-stage-line" : "border-line"
+      className={`fixed inset-x-0 top-0 z-50 flex h-[72px] items-center justify-between border-b px-10 backdrop-blur transition-colors duration-500 ${
+        dark ? "border-stage-line bg-stage-bg/80" : "border-line bg-bg-base/80"
       }`}
     >
       <div className="flex flex-col gap-0.5">
@@ -39,7 +60,7 @@ export default function Header({ era, active = NAV_ITEM.CLOSET }: HeaderProps) {
       </div>
       <nav className="flex items-center gap-5">
         {NAV_ITEMS.map(({ label, href }) => (
-          <a
+          <Link
             key={label}
             href={href}
             className={`text-sm tracking-[0.6px] transition-colors ${
@@ -53,17 +74,17 @@ export default function Header({ era, active = NAV_ITEM.CLOSET }: HeaderProps) {
             }`}
           >
             {label}
-          </a>
+          </Link>
         ))}
-        <a
-          href="#contact"
+        <Link
+          href="/about"
           className={`flex items-center gap-1 rounded-full px-4 py-[9px] transition-colors ${
             dark ? "bg-stage-accent text-stage-bg" : "bg-ink text-bg-soft"
           }`}
         >
           <span className="text-xs tracking-[0.4px]">Get in touch</span>
           <ArrowUpRight aria-hidden />
-        </a>
+        </Link>
       </nav>
     </header>
   );
