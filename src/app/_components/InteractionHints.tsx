@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Hand from "@/lib/icons/hand.svg";
 import MousePointerClick from "@/lib/icons/mouse-pointer-click.svg";
+import type { Garment } from "@/lib/constants";
 
 const MODES = [
   { Icon: Hand, title: "DRAG", desc: "옷을 캐릭터에게 끌어놓기" },
@@ -9,9 +10,19 @@ const MODES = [
 
 const KEYS = ["←", "→", "Enter"];
 
-export default function InteractionHints() {
+export default function InteractionHints({
+  dragging,
+}: {
+  dragging?: Garment | null;
+}) {
   return (
-    <div className="fixed bottom-4 left-1/2 flex w-[calc(100%-80px)] -translate-x-1/2 transform items-center justify-between rounded-[25px] border border-line bg-bg-panel px-5 py-4">
+    <div
+      className={`fixed bottom-4 left-1/2 flex w-[calc(100%-80px)] -translate-x-1/2 transform items-center justify-between rounded-[25px] border px-5 py-4 transition-colors ${
+        dragging
+          ? `${dragging.accentBorderClass} ${dragging.cardClass}`
+          : "border-line bg-bg-panel"
+      }`}
+    >
       <div className="flex items-center gap-5">
         {MODES.map(({ Icon, title, desc }, i) => (
           <Fragment key={title}>

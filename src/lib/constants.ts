@@ -30,6 +30,8 @@ export const GARMENTS = [
     image: "/images/garment-vumezin.png",
     cardClass: "bg-p22-tint",
     chipClass: "border-p22 text-p22",
+    accentBgClass: "bg-p22",
+    accentBorderClass: "border-p22",
     companyClass: "text-lg",
   },
   {
@@ -40,6 +42,8 @@ export const GARMENTS = [
     image: "/images/garment-mineis.png",
     cardClass: "bg-p24-tint",
     chipClass: "border-p24 text-p24",
+    accentBgClass: "bg-p24",
+    accentBorderClass: "border-p24",
     companyClass: "text-lg",
   },
   {
@@ -50,6 +54,8 @@ export const GARMENTS = [
     image: "/images/garment-collectiv.png",
     cardClass: "bg-p26-tint",
     chipClass: "border-p26 text-p26",
+    accentBgClass: "bg-p26",
+    accentBorderClass: "border-p26",
     companyClass: "text-md",
   },
 ] as const;

@@ -1,6 +1,4 @@
-import HeroTop from "./_components/HeroTop";
-import ClosetRack from "./_components/ClosetRack";
-import InteractionHints from "./_components/InteractionHints";
+import ClosetBoard from "./_components/ClosetBoard";
 
 export default function Home() {
   return (
@@ -21,9 +19,7 @@ export default function Home() {
         aria-hidden
         className="absolute top-[calc(72px+600px)] left-[700px] -z-10 h-[140px] w-[140px] rounded-full bg-gold-tint"
       />
-      <HeroTop />
-      <ClosetRack />
-      <InteractionHints />
+      <ClosetBoard />
     </main>
   );
 }
