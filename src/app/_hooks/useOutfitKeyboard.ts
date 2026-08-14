@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useEffectEvent, useState } from "react";
-import { OUTFITS, type Outfit } from "@/lib/constants";
+import { OUTFITS, type Outfit } from "@/lib/content/outfits";
 
 interface UseOutfitKeyboardOptions {
   disabled: boolean;

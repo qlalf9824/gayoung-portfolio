@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useEffectEvent, useRef, useState } from "react";
-import type { Outfit } from "@/lib/constants";
+import type { Outfit } from "@/lib/content/outfits";
 
 const DRAG_THRESHOLD = 6;
 const DROP_MARGIN = 24;

@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Ref } from "react";
 import Sparkles from "@/lib/icons/sparkles.svg";
 import Hand from "@/lib/icons/hand.svg";
-import type { Outfit } from "@/lib/constants";
+import type { Outfit } from "@/lib/content/outfits";
 
 interface HeroTopProps {
   dragging: Outfit | null;

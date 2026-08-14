@@ -7,7 +7,7 @@ import ClosetRack from "./ClosetRack";
 import InteractionHints from "./InteractionHints";
 import { useOutfitDrag } from "../_hooks/useOutfitDrag";
 import { useOutfitKeyboard } from "../_hooks/useOutfitKeyboard";
-import type { Outfit } from "@/lib/constants";
+import type { Outfit } from "@/lib/content/outfits";
 
 export default function ClosetBoard() {
   const router = useRouter();

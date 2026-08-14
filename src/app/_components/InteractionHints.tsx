@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Hand from "@/lib/icons/hand.svg";
 import MousePointerClick from "@/lib/icons/mouse-pointer-click.svg";
-import type { Outfit } from "@/lib/constants";
+import type { Outfit } from "@/lib/content/outfits";
 
 const MODES = [
   { Icon: Hand, title: "DRAG", desc: "옷을 캐릭터에게 끌어놓기" },

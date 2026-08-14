@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { OUTFITS } from "@/lib/constants";
+import { OUTFITS } from "@/lib/content/outfits";
 
 export function generateStaticParams() {
   return OUTFITS.map((outfit) => ({ era: outfit.era }));

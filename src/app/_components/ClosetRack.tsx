@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Shirt from "@/lib/icons/shirt.svg";
-import { OUTFITS, type Outfit } from "@/lib/constants";
+import { OUTFITS, type Outfit } from "@/lib/content/outfits";
 
 interface ClosetRackProps {
   dragging: Outfit | null;
