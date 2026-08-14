@@ -1,28 +1,30 @@
 import Image from "next/image";
 import Shirt from "@/lib/icons/shirt.svg";
-import { GARMENTS, type Garment } from "@/lib/constants";
+import { OUTFITS, type Outfit } from "@/lib/constants";
 
 interface ClosetRackProps {
-  dragging: Garment | null;
-  onGarmentGrab: (garment: Garment, e: React.PointerEvent) => void;
-  onWear: (garment: Garment) => void;
+  dragging: Outfit | null;
+  selected: Outfit | null;
+  onOutfitGrab: (outfit: Outfit, e: React.PointerEvent) => void;
+  onWear: (outfit: Outfit) => void;
 }
 
 export default function ClosetRack({
   dragging,
-  onGarmentGrab,
+  selected,
+  onOutfitGrab,
   onWear,
 }: ClosetRackProps) {
   return (
     <div className="flex w-full flex-col">
       <div className="flex w-full">
-        {GARMENTS.map((g) => (
+        {OUTFITS.map((outfit) => (
           <div
-            key={g.era}
+            key={outfit.era}
             className="flex flex-1 flex-col items-center gap-1.5 pb-2.5"
           >
             <span className="text-sm font-medium tracking-[3px] text-ink">
-              {g.year}
+              {outfit.year}
             </span>
             <span className="h-2 w-px bg-rail" />
           </div>
@@ -30,25 +32,28 @@ export default function ClosetRack({
       </div>
       <div className="h-1.5 w-full rounded-[3px] bg-rail" />
       <div className="flex w-full">
-        {GARMENTS.map((g) => {
-          const isDragging = dragging?.era === g.era;
+        {OUTFITS.map((outfit) => {
+          const isDragging = dragging?.era === outfit.era;
+          const isSelected = selected?.era === outfit.era;
           return (
-            <div key={g.era} className="flex flex-1 flex-col items-center">
+            <div key={outfit.era} className="flex flex-1 flex-col items-center">
               <span
-                className={`h-[26px] w-0.5 ${isDragging ? g.accentBgClass : "bg-rail"}`}
+                className={`h-[26px] w-0.5 ${isDragging || isSelected ? outfit.accentBgClass : "bg-rail"}`}
               />
               <div
                 onPointerDown={(e) => {
                   if ((e.target as HTMLElement).closest("button")) return;
-                  onGarmentGrab(g, e);
+                  onOutfitGrab(outfit, e);
                 }}
-                className={`flex w-[150px] cursor-grab touch-none flex-col items-center rounded-[22px] border border-transparent p-4 pb-[18px] select-none ${g.cardClass} ${
-                  isDragging ? "opacity-20" : ""
-                }`}
+                className={`flex w-[150px] cursor-grab touch-none flex-col items-center rounded-[22px] border p-4 pb-[18px] transition-[border-color,transform] select-none ${outfit.cardClass} ${
+                  isSelected
+                    ? `${outfit.accentBorderClass} scale-[1.03]`
+                    : "border-transparent"
+                } ${isDragging ? "opacity-20" : ""}`}
               >
                 <Image
-                  src={g.image}
-                  alt={g.company}
+                  src={outfit.image}
+                  alt={outfit.company}
                   width={140}
                   height={140}
                   className="h-[clamp(90px,8vh,110px)] w-auto"
@@ -56,18 +61,18 @@ export default function ClosetRack({
                 />
                 <div className="flex flex-col items-center mb-2">
                   <span
-                    className={`font-bold tracking-[-0.2px] text-md ${g.companyClass}`}
+                    className={`font-bold tracking-[-0.2px] text-md ${outfit.companyClass}`}
                   >
-                    {g.company}
+                    {outfit.company}
                   </span>
                   <span className="text-xs tracking-[0.3px] text-ink-3">
-                    {g.role}
+                    {outfit.role}
                   </span>
                 </div>
                 <button
                   type="button"
-                  onClick={() => onWear(g)}
-                  className={`flex cursor-pointer items-center gap-1.5 rounded-full border bg-bg-panel px-[13px] py-[7px] transition-transform hover:scale-105 ${g.chipClass}`}
+                  onClick={() => onWear(outfit)}
+                  className={`flex cursor-pointer items-center gap-1.5 rounded-full border bg-bg-panel px-[13px] py-[7px] transition-transform hover:scale-105 ${outfit.chipClass}`}
                 >
                   <Shirt width={12} height={12} />
                   <span className="text-xs tracking-[0.4px]">Wear</span>

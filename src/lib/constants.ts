@@ -21,13 +21,13 @@ export const NAV_ITEMS: { label: NavItem; href: string }[] = [
   { label: NAV_ITEM.ABOUT, href: "/about" },
 ];
 
-export const GARMENTS = [
+export const OUTFITS = [
   {
     era: CAREER_ERA.VUMEZIN_2021,
     year: "2021",
     company: "뷰메진",
     role: "Frontend Developer",
-    image: "/images/garment-vumezin.png",
+    image: "/images/outfit-vumezin.png",
     cardClass: "bg-p22-tint",
     chipClass: "border-p22 text-p22",
     accentBgClass: "bg-p22",
@@ -39,7 +39,7 @@ export const GARMENTS = [
     year: "2022",
     company: "마인이스",
     role: "차란 · Frontend",
-    image: "/images/garment-mineis.png",
+    image: "/images/outfit-mineis.png",
     cardClass: "bg-p24-tint",
     chipClass: "border-p24 text-p24",
     accentBgClass: "bg-p24",
@@ -51,7 +51,7 @@ export const GARMENTS = [
     year: "2026",
     company: "크레이빙콜렉터",
     role: "콜렉티브 · Frontend",
-    image: "/images/garment-collectiv.png",
+    image: "/images/outfit-collectiv.png",
     cardClass: "bg-p26-tint",
     chipClass: "border-p26 text-p26",
     accentBgClass: "bg-p26",
@@ -59,4 +59,4 @@ export const GARMENTS = [
     companyClass: "text-md",
   },
 ] as const;
-export type Garment = (typeof GARMENTS)[number];
+export type Outfit = (typeof OUTFITS)[number];

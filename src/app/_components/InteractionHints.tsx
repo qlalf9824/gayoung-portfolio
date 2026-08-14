@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Hand from "@/lib/icons/hand.svg";
 import MousePointerClick from "@/lib/icons/mouse-pointer-click.svg";
-import type { Garment } from "@/lib/constants";
+import type { Outfit } from "@/lib/constants";
 
 const MODES = [
   { Icon: Hand, title: "DRAG", desc: "옷을 캐릭터에게 끌어놓기" },
@@ -12,8 +12,10 @@ const KEYS = ["←", "→", "Enter"];
 
 export default function InteractionHints({
   dragging,
+  pressedKey,
 }: {
-  dragging?: Garment | null;
+  dragging?: Outfit | null;
+  pressedKey?: string | null;
 }) {
   return (
     <div
@@ -43,7 +45,11 @@ export default function InteractionHints({
         {KEYS.map((key) => (
           <kbd
             key={key}
-            className="rounded-[11px] border border-rail bg-bg-base px-[9px] py-[5px] text-xs text-ink-2"
+            className={`rounded-[11px] border px-[9px] py-[5px] text-xs transition-colors ${
+              pressedKey === key
+                ? "border-ink bg-ink text-bg-soft"
+                : "border-rail bg-bg-base text-ink-2"
+            }`}
           >
             {key}
           </kbd>

@@ -2,10 +2,10 @@ import Image from "next/image";
 import type { Ref } from "react";
 import Sparkles from "@/lib/icons/sparkles.svg";
 import Hand from "@/lib/icons/hand.svg";
-import type { Garment } from "@/lib/constants";
+import type { Outfit } from "@/lib/constants";
 
 interface HeroTopProps {
-  dragging: Garment | null;
+  dragging: Outfit | null;
   dropZoneRef: Ref<HTMLDivElement>;
 }
 
