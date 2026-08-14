@@ -11,8 +11,8 @@ interface HeroTopProps {
 
 export default function HeroTop({ dragging, dropZoneRef }: HeroTopProps) {
   return (
-    <div className="flex min-h-0 w-full flex-1 justify-between gap-10">
-      <div className="flex min-w-0 flex-col gap-2">
+    <div className="flex min-h-0 w-full flex-1 justify-between gap-10 max-[750px]:flex-col max-[750px]:items-center max-[750px]:gap-8">
+      <div className="flex min-w-0 flex-col gap-2 max-[750px]:items-center max-[750px]:text-center">
         <div className="flex items-center gap-2 text-ink-3">
           <Sparkles width={14} height={14} />
           <span className="h-px w-[26px] bg-ink-3" />
@@ -20,7 +20,7 @@ export default function HeroTop({ dragging, dropZoneRef }: HeroTopProps) {
             01 — CAREER, WEARABLE
           </span>
         </div>
-        <h1 className="text-title font-bold tracking-[-2.5px] whitespace-pre-line text-ink">
+        <h1 className="text-title font-bold tracking-[-2.5px] whitespace-pre-line text-ink max-[750px]:text-[40px] max-[750px]:tracking-[-1.5px]">
           {"MY CAREER\nCLOSET"}
         </h1>
         <p className="max-w-[520px] text-md leading-[1.75] text-ink-2">
@@ -29,10 +29,13 @@ export default function HeroTop({ dragging, dropZoneRef }: HeroTopProps) {
           바뀝니다.
         </p>
       </div>
-      <div className="flex min-h-0 shrink-0 flex-col items-end justify-end">
-        <div ref={dropZoneRef} className="relative mr-4 shrink-0">
+      <div className="flex min-h-0 shrink-0 flex-col items-end justify-end max-[750px]:w-full max-[750px]:items-center">
+        <div
+          ref={dropZoneRef}
+          className="relative mr-4 shrink-0 max-[750px]:mt-12 max-[750px]:mr-0"
+        >
           <div
-            className={`absolute top-0 right-[80%] z-10 flex items-center gap-2 rounded-2xl rounded-br-[4px] border-[1.5px] px-[18px] py-3 whitespace-nowrap transition-colors ${
+            className={`absolute top-0 right-[80%] z-10 flex items-center gap-2 rounded-2xl rounded-br-[4px] border-[1.5px] px-[18px] py-3 whitespace-nowrap transition-colors max-[750px]:-top-12 max-[750px]:right-auto max-[750px]:left-1/2 max-[750px]:-translate-x-1/2 max-[750px]:rounded-br-2xl ${
               dragging
                 ? `${dragging.accentBorderClass} ${dragging.accentBgClass}`
                 : "border-ink bg-bg-panel"

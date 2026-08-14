@@ -45,7 +45,7 @@ export default function ClosetRack({
                   if ((e.target as HTMLElement).closest("button")) return;
                   onOutfitGrab(outfit, e);
                 }}
-                className={`flex w-[150px] cursor-grab touch-none flex-col items-center rounded-[22px] border p-4 pb-[18px] transition-[border-color,transform] select-none ${outfit.cardClass} ${
+                className={`flex w-[150px] cursor-grab touch-none flex-col items-center rounded-[22px] border p-4 pb-[18px] transition-[border-color,transform] select-none max-[750px]:w-[113px] max-[750px]:p-2 max-[750px]:pb-3 ${outfit.cardClass} ${
                   isSelected
                     ? `${outfit.accentBorderClass} scale-[1.03]`
                     : "border-transparent"
@@ -56,23 +56,23 @@ export default function ClosetRack({
                   alt={outfit.company}
                   width={140}
                   height={140}
-                  className="h-[clamp(90px,8vh,110px)] w-auto"
+                  className="h-[clamp(90px,8vh,110px)] w-auto max-[750px]:h-14"
                   draggable={false}
                 />
                 <div className="flex flex-col items-center mb-2">
                   <span
-                    className={`font-bold tracking-[-0.2px] text-md ${outfit.companyClass}`}
+                    className={`font-bold tracking-[-0.2px] whitespace-nowrap text-md max-[750px]:text-sm ${outfit.companyClass}`}
                   >
                     {outfit.company}
                   </span>
-                  <span className="text-xs tracking-[0.3px] text-ink-3">
+                  <span className="text-center text-xs tracking-[0.3px] text-ink-3">
                     {outfit.role}
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => onWear(outfit)}
-                  className={`flex cursor-pointer items-center gap-1.5 rounded-full border bg-bg-panel px-[13px] py-[7px] transition-transform hover:scale-105 ${outfit.chipClass}`}
+                  className={`flex cursor-pointer items-center gap-1.5 rounded-full border bg-bg-panel px-[13px] py-[7px] transition-transform hover:scale-105 max-[750px]:px-2.5 max-[750px]:py-1 ${outfit.chipClass}`}
                 >
                   <Shirt width={12} height={12} />
                   <span className="text-xs tracking-[0.4px]">Wear</span>

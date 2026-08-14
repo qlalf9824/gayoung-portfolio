@@ -19,7 +19,7 @@ export default function InteractionHints({
 }) {
   return (
     <div
-      className={`fixed bottom-4 left-1/2 flex w-[calc(100%-80px)] -translate-x-1/2 transform items-center justify-between rounded-[25px] border px-5 py-4 transition-colors ${
+      className={`fixed bottom-4 left-1/2 flex w-[calc(100%-80px)] -translate-x-1/2 transform items-center justify-between rounded-[25px] border px-5 py-4 transition-colors max-[750px]:w-[calc(100%-32px)] max-[750px]:justify-center max-[750px]:px-4 max-[750px]:py-3 ${
         dragging
           ? `${dragging.accentBorderClass} ${dragging.cardClass}`
           : "border-line bg-bg-panel"
@@ -41,7 +41,7 @@ export default function InteractionHints({
           </Fragment>
         ))}
       </div>
-      <div className="flex items-center gap-[7px]">
+      <div className="flex items-center gap-[7px] max-[750px]:hidden">
         {KEYS.map((key) => (
           <kbd
             key={key}
